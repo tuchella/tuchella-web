@@ -1,16 +1,4 @@
-$fg-color: #EEE;
-$bg-color: black;
 $min-screen-width: 768px;
-
-body {
-    width: 100vw;
-    min-height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    font-family: 'Atkinson Hyperlegible', sans-serif;
-    background-color: $bg-color;
-    color: $fg-color;
-}
 
 .d-flex {
     display: flex;
@@ -23,6 +11,43 @@ body {
         @content;
     }
 }
+@mixin animate-opacity($delay) {
+    opacity: 1;
+    transition: opacity calc(1.1s - $delay) ease-out $delay
+}
+@mixin hide-when-not-ready {
+    .notready & {
+        opacity: 0;
+    }
+}
+
+.seizure-warning {
+    $width: 608px;
+    background-color: darkred; 
+    color: white;
+    text-align: center; position: absolute; 
+    top: 2em; width: auto;
+    left:calc(50% - ( $width / 2 )); 
+    z-index: 10;
+    font-size: 1.25em;
+    width: $width;
+    padding: 1em;
+    border: 1px solid red;
+    border-radius: 4px;
+
+    @include animate-opacity(0.5s);
+    @include hide-when-not-ready;
+    @include mobile-only { 
+        width: 100%;
+        min-width: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    .playing & {
+        opacity: 0;
+    }
+}
 
 .video-container {
     max-width: 90%;
@@ -31,15 +56,6 @@ body {
     align-items: stretch;
     position: relative;
 
-    @mixin hide-when-not-ready {
-        .notready & {
-            opacity: 0;
-        }
-    }
-    @mixin animate-opacity($delay) {
-        opacity: 1;
-        transition: opacity calc(1.1s - $delay) ease-out $delay
-    }
 
     .video-player {
         flex-grow: 1;
@@ -91,10 +107,6 @@ body {
                 width: 100%;
                 color: #AAA;
                 padding-bottom: 1em;
-
-                @include mobile-only {
-                    color: yellow;
-                }
             }
         }
     }

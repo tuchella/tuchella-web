@@ -14,6 +14,9 @@
 
 <body class="d-flex">
     <script>document.querySelector('body').classList.add('notready')</script>
+    <div class="seizure-warning" >
+        WARNING: This video may potentially trigger seizures for people with photosensitive epilepsy. Viewer discretion is advised.
+    </div>
     <div class="video-container d-flex">
         <div class="video-player">
             <video controls>
@@ -65,6 +68,9 @@
             body.classList.add('ready');
             body.classList.remove('notready');
             console.log('ready');
+        });
+        video.addEventListener("play", (event) => {
+            body.classList.add('playing');
         });
 
     </script>
