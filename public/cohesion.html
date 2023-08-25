@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> coherence (2022)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="d-flex">
+    <script>document.querySelector('body').classList.add('notready')</script>
+    <div class="video-container d-flex">
+        <div class="video-player">
+            <video controls>
+                <source
+                src="https://firebasestorage.googleapis.com/v0/b/tuchella.appspot.com/o/video%2Fcollatz.webm?alt=media&token=9b966ee0-0873-4cd2-95a8-7ca681770538"
+                type="video/webm" />
+                <!-- <source 
+                    src="https://firebasestorage.googleapis.com/v0/b/tuchella.appspot.com/o/video%2Fcollatz_small.mov?alt=media&token=b3984a99-0798-4a9f-9232-e49b19285a08" 
+                    type="video/quicktime" /> -->
+                </video>
+        </div>
+        <div class="video-meta d-flex">
+            <div class="video-title">
+                <h1>cohesion (2022)</h1>
+            </div>
+            <div class="video-description">
+                <div class="video-description-text">
+                    <p>
+                        Some things seem to be connected in particular ways - in my experience. So it seems at least in this audio-visual work. It is based on what I try to describe as visual concatenative synthesis, operating on a corpus extracted from the ImageCLEF Wikipedia Image Retrieval Dataset. The sound follows the images, at least that connection is quite obvious.
+                    </p><p>
+                        Last sencentce.
+                    </p>
+                </div>
+            </div>
+            <!-- <div class="video-metaa d-flex">
+
+                <div class="video-title">
+                    <h1>coherence (2022)</h1>
+                </div>
+                <div class="video-description">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus laoreet, nisi ut semper lacinia, enim urna lobortis felis, non facilisis quam justo vitae odio. Suspendisse potenti. Sed facilisis est in nisl placerat blandit id ut nisl. Duis cursus tristique ante, eu ornare tortor egestas ac. Vestibulum commodo volutpat aliquam. Aenean vitae venenatis orci. Cras elementum lorem quis eros aliquet, id congue magna mattis. Donec ac massa id orci fermentum aliquet nec sit amet ipsum. Nulla facilisi. Proin sit amet sapien at tellus aliquet volutpat. In hac habitasse platea dictumst. Proin maximus mauris a vehicula accumsan.
+                    </p><p>
+                        Last sencentce.
+                    </p>
+                </div>
+                
+            </div> -->
+
+        </div>
+    </div>
+    <script>
+        const video = document.querySelector("video");
+        const body = document.querySelector("body");
+
+        console.log('hallo');
+
+        video.addEventListener("loadedmetadata", (event) => {
+            body.classList.add('ready');
+            body.classList.remove('notready');
+            console.log('ready');
+        });
+
+    </script>
+</body>
+
+</html>

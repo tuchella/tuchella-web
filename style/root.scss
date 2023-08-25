@@ -1,0 +1,21 @@
+@use 'video-player.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$fg-color: #EEE;
+$bg-color: black;
+$min-screen-width: 768px;
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    background-color: $bg-color;
+    color: $fg-color;
+}

@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build": "npm run build-css",
+    "build-all-css": "sass --no-source-map --style=expanded style:public",
+    "build-css": "sass --no-source-map --style=compressed style/root.scss:public/style.css"
+    
+  },
+  "devDependencies": {
+    "sass": "^1.66.1"
+  }
+}
