@@ -41,38 +41,23 @@
                     </p>
                 </div>
             </div>
-            <!-- <div class="video-metaa d-flex">
-
-                <div class="video-title">
-                    <h1>coherence (2022)</h1>
-                </div>
-                <div class="video-description">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus laoreet, nisi ut semper lacinia, enim urna lobortis felis, non facilisis quam justo vitae odio. Suspendisse potenti. Sed facilisis est in nisl placerat blandit id ut nisl. Duis cursus tristique ante, eu ornare tortor egestas ac. Vestibulum commodo volutpat aliquam. Aenean vitae venenatis orci. Cras elementum lorem quis eros aliquet, id congue magna mattis. Donec ac massa id orci fermentum aliquet nec sit amet ipsum. Nulla facilisi. Proin sit amet sapien at tellus aliquet volutpat. In hac habitasse platea dictumst. Proin maximus mauris a vehicula accumsan.
-                    </p><p>
-                        Last sencentce.
-                    </p>
-                </div>
-                
-            </div> -->
-
         </div>
     </div>
     <script>
         const video = document.querySelector("video");
         const body = document.querySelector("body");
 
-        console.log('hallo');
-
         video.addEventListener("loadedmetadata", (event) => {
             body.classList.add('ready');
             body.classList.remove('notready');
-            console.log('ready');
-        });
-        video.addEventListener("play", (event) => {
-            body.classList.add('playing');
         });
 
+        function dismissSeizureWarning() {
+            body.classList.add('no-warning');
+        }
+        video.addEventListener("play", (event) => {
+            dismissSeizureWarning();
+        });
     </script>
 </body>
 
