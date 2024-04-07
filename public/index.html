@@ -101,7 +101,7 @@ h1 {
   <body>
     <header>
       <nav>
-        <a href=".">@tuchella</a> / <a href=".">work</a> / <a href=".">walk</a> <span class="sm-hidden">/ <a href="/assets/wok.png">wok</a></span> 
+        <a href=".">@tuchella</a> / <a href=".">work</a> / <a id="walk" href="#">walk</a> <span class="sm-hidden">/ <a href="/assets/wok.png">wok</a></span> 
       </nav>
     </header>
     <main>
@@ -124,6 +124,54 @@ h1 {
       <div class="sm-hidden">TERMS AND CONDITIONS APPLY</div>
       <div class="sm-hidden">privacy, not policy</div>
     </footer>
+    <script>
+
+document.getElementById("walk").addEventListener("click", (e) => {
+  const el = e.target;
+  let left = el.offsetLeft;
+  let top = el.offsetTop; 
+  let opacity = 2.0;
+  
+  let foot = true;
+  let down = true;
+
+  function takeAStep() {
+    const style = `
+      position: sticky;
+      left: ${left}px;
+      top: ${top}px;
+      opacity: ${opacity > 1 ? 1 : opacity};
+      display: inline;
+      pointer-events: none;
+      cursor: default;
+    `;
+    el.setAttribute("style", style);
+    left += 10;
+    opacity -= 0.05;
+    if (down) {
+      top += foot ? 6 : -4;
+    } else {
+      top += foot ? 4 : -6; 
+    }
+    foot = !foot;
+    if (top > 32) {
+      down = false;
+    } if (top < 20) {
+      down = true;
+    }
+  }
+
+  takeAStep();
+  let interval = setInterval(() => {
+    takeAStep();
+    if (opacity < 0.) {
+      clearInterval(interval);
+    }
+  }, 300 + (Math.random() * 200));
+
+})
+
+    </script>
 	<!-- <script src="index.js"></script> -->
   </body>
 </html>
