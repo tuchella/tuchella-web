@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Echoic Choir</title>
-    <link rel="stylesheet" href="style.css">
     <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body {
+html, body {
     width: 100vw;
     overflow-x: hidden;
-    
     background: rgb(249,249,249); 
     background: linear-gradient(180deg, 
         rgba(249,249,249,1) 0%, 
@@ -29,7 +27,6 @@ body {
         rgba(231,213,255,1) 85%, 
         rgba(255,221,254,1) 90%, 
         rgb(255, 99, 99) 100%); 
-
 }
 img {
     max-width: 100%;
@@ -44,7 +41,6 @@ li {
 li:nth-child(3n), li:nth-child(7n) {
     text-align: left;
 }
-
 li:last-child {
     text-align: center; 
     margin-bottom: -1em;
@@ -66,13 +62,11 @@ body.done li:last-child img {
     background-size: contain;
     background-repeat: no-repeat;
     background-blend-mode: darken;
-    animation: loopbg 10s 1;
-    
-    
+    animation: fadeinbg 10s 1;
 }
 
 /* Animation Keyframes*/
-@keyframes loopbg {
+@keyframes fadeinbg {
     0% { background-color: black; }
     50% { background-color: #FEFEF6; }
     100% { background-color: #FEFEF6; }
@@ -82,7 +76,7 @@ body.done li:last-child img {
   </head>
   <body>
     <div class="intro">
-
+        <!-- "ECHOIC CHOIR" background image -->
     </div>
 
     <div class="galery" style="width: 100vw; overflow: hidden;">
@@ -103,14 +97,12 @@ body.done li:last-child img {
                 </video> -->
             </li>
             <li>
-                <h2>test 1 2 r</h2>
                 <video autoplay loop muted style="width: 100vw; min-height: 200px;">
                     <source src="https://firebasestorage.googleapis.com/v0/b/tuchella.appspot.com/o/pres%2F2024_04_hybrid%2Fcredits1.webm?alt=media&token=9283b7bf-0cb9-4db8-b1f1-561303251b1c" type="video/webm">
                 </video>
             </li>
             <li><img src='https://www.mattatoioroma.it/MC-API/Risorse/StreamImmagineOriginale.ashx?guid=D958AA9D-5924-4C35-A059-7283B751F44F' title='imgs/StreamImmagineOriginale4.jpeg' /></li>
             <li>
-                <h2>test 1 2 r</h2>
                 <video autoplay loop muted style="width: 100vw; min-height: 200px;">
                     <source src="https://firebasestorage.googleapis.com/v0/b/tuchella.appspot.com/o/pres%2F2024_04_hybrid%2Fcredits2.webm?alt=media&token=3ad225cd-b856-4d74-9ad4-0f7930d174ff">
                 </video>
@@ -157,26 +149,23 @@ body.done li:last-child img {
 	<script>
 let scrollInterval = -1;
 let prevPos = -1;
+let relPos = 0;
 
 function updateRelPos() {
-    let relPos = (window.innerHeight + window.pageYOffset) / document.body.offsetHeight;
-    console.log((window.innerHeight + window.pageYOffset), document.body.offsetHeight, relPos);
+    relPos = (window.innerHeight + window.pageYOffset) / document.body.offsetHeight;
 }
 
 function startScroll() {
     scrollInterval = setInterval(function() { 
             updateRelPos();
             window.scrollBy({
-                top: 30,
+                top: 10,
                 left: 0,
                 behavior: "smooth"
             }); 
 
-
             let newPos = (window.innerHeight + window.pageYOffset);
-            // console.log(prevPos, newPos);
             if (prevPos == newPos && document.body.offsetHeight - newPos < 10) {
-                // console.log('scrolled');
                 clearInterval(scrollInterval)
                 setTimeout(function() {
                     document.body.classList.add("done")
@@ -204,7 +193,6 @@ document.addEventListener('keyup', (e) => {
   } else if (e.key == 'w') {
     document.body.classList.toggle('done')
   }
-//   console.log(e.key)
 });
     </script>
   </body>
